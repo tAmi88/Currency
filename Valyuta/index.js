@@ -16,16 +16,34 @@
 //     })
 // })
 btnLeft=document.querySelectorAll('.value-buttons-left')
-btnLeft[0].firstElementChild.addEventListener('click',()=>{
-    btnLeft[0].firstElementChild.style.background="#833AE0"
-    btnLeft[0].firstElementChild.style.color="white"
+btnLeft1=document.querySelector('.value-buttons-left')
+function last_btn(){
     btnLeft[0].lastElementChild.style.background="#E5E5E5"
     btnLeft[0].lastElementChild.style.color="black"
-})
-btnLeft[0].lastElementChild.addEventListener('click',()=>{
-    btnLeft[0].lastElementChild.style.background="#833AE0"
-    btnLeft[0].lastElementChild.style.color="white"
+}
+function first_btn(){
     btnLeft[0].firstElementChild.style.background="#E5E5E5"
     btnLeft[0].firstElementChild.style.color="black"
+}
+console.log(btnLeft1.children[2])
+btnLeft1.children[2].style.background="black"
+btnLeft.forEach((item,index)=>{
+    item.addEventListener('click',(e)=>{
+        if(e.target==btnLeft[0].firstElementChild){
+            e.target.style.background='#833AE0'
+            e.target.style.color='white'
+            // for(i=0;i<) duzelis etmek
+        }
+        else if(e.target==btnLeft[0].lastElementChild){
+            e.target.style.background='#833AE0'
+            e.target.style.color='white'
+            first_btn()
+        }
+        else if(e.target!=btnLeft[0].lastElementChild || e.target==btnLeft[0].firstElementChild){
+            e.target.style.background='#833AE0'
+            e.target.style.color='white'
+            first_btn()
+            last_btn()
+        }
+    })
 })
-
