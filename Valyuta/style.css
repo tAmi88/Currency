@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar {
+  background: #f5f5f6;
+  padding: 1em 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .center {
+  margin-right: 170px;
+}
+
+.navbar .center a {
+  margin-right: 33px;
+  text-decoration: none;
+  color: #959BA4;
+  letter-spacing: 0.06em;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navbar .center a:hover {
+  color: #000;
+}
+
+.navbar .center .active {
+  color: #000;
+}
+
+.navbar .login button {
+  padding: 5px;
+  background-color: #fff;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main h1 {
+  width: 800px;
+  margin-top: 56px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 40px;
+}
+
+.calculate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 800px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calculate .value-buttons {
+  font-size: 0px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-family: 'Roboto';
+}
+
+.calculate .value-buttons button {
+  border-radius: 0px;
+  border: 1px solid #E5E5E5;
+  outline: none;
+  padding: 10px 21px;
+  cursor: pointer;
+}
+
+.calculate .value-buttons button.active2 {
+  background: #833AE0;
+  color: #fff;
+}
+
+.calculate .value-buttons .first {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.calculate .value-buttons .last {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.calculate .price {
+  font-family: 'Roboto';
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  padding: 10px 15px;
+}
+
+.calculate .price p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calculate .price input {
+  width: 100%;
+  height: 40px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.calculate .left {
+  margin-right: 123px;
+  width: 290px;
+}
+
+.calculate .right {
+  width: 290px;
+}
+
+.calculate p {
+  color: #9F9F9F;
+}
+/*# sourceMappingURL=style.css.map */
