@@ -70,7 +70,7 @@
     justify-content: flex-start;
     width: 800px;
     align-items: center;
-    .value-buttons{
+    .value-buttons-left{
         font-size: 0px;
         margin-bottom: 20px;
         margin-top: 10px;
@@ -80,11 +80,27 @@
             border: 1px solid #E5E5E5;
             outline:none;
             padding: 10px 21px;
-            &.active2{
-                background: #833AE0;
-                color: #fff;
-            }
             cursor: pointer;
+            background: #E5E5E5;
+        }
+        
+        .last{
+            border-top-right-radius:3px;
+            border-bottom-right-radius:3px;
+        }
+    }
+    .value-buttons-right{
+        font-size: 0px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-family: 'Roboto';
+        button{
+            border-radius: 0px;
+            border: 1px solid #E5E5E5;
+            outline:none;
+            padding: 10px 21px;
+            cursor: pointer;
+            background: #E5E5E5;
         }
         
         .first{

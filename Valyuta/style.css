@@ -106,32 +106,49 @@
           align-items: center;
 }
 
-.calculate .value-buttons {
+.calculate .value-buttons-left {
   font-size: 0px;
   margin-bottom: 20px;
   margin-top: 10px;
   font-family: 'Roboto';
 }
 
-.calculate .value-buttons button {
+.calculate .value-buttons-left button {
   border-radius: 0px;
   border: 1px solid #E5E5E5;
   outline: none;
   padding: 10px 21px;
   cursor: pointer;
+  background: #E5E5E5;
 }
 
-.calculate .value-buttons button.active2 {
-  background: #833AE0;
-  color: #fff;
+.calculate .value-buttons-left .last {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
-.calculate .value-buttons .first {
+.calculate .value-buttons-right {
+  font-size: 0px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-family: 'Roboto';
+}
+
+.calculate .value-buttons-right button {
+  border-radius: 0px;
+  border: 1px solid #E5E5E5;
+  outline: none;
+  padding: 10px 21px;
+  cursor: pointer;
+  background: #E5E5E5;
+}
+
+.calculate .value-buttons-right .first {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-.calculate .value-buttons .last {
+.calculate .value-buttons-right .last {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
