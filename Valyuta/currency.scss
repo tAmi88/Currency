@@ -237,23 +237,24 @@
         top:0;
         left:0;
         height: auto;
-        width: 100%;    
+        max-width: 50%;    
         background-color: #fff;
         transition: 0.5s;
         transform: translateX(-100%);
         &.active{
-        transform: translateX(0);    
+        transform: translateX(-50%);    
         }
         ul{
             display:inherit;
-            width: 100%;
-            text-align: center;
+            max-width: 100%;
+            text-align: right;
             height: 50%; 
             float: none;
             margin: 0;
             padding: 0;
             li{
-                list-style: none; 
+                list-style: none;
+                
                 a{
                     line-height: 60px;
                     font-family: sans-serif;

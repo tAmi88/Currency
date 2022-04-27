@@ -294,7 +294,7 @@
   top: 0;
   left: 0;
   height: auto;
-  width: 100%;
+  max-width: 50%;
   background-color: #fff;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -303,14 +303,14 @@
 }
 
 #navbar-phone .menu-bar.active {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 #navbar-phone .menu-bar ul {
   display: inherit;
-  width: 100%;
-  text-align: center;
+  max-width: 100%;
+  text-align: right;
   height: 50%;
   float: none;
   margin: 0;
