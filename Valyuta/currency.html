@@ -10,7 +10,7 @@
   <body>
     <div class="navbar">
       <div class="logo">
-        <img src="img/Asset 1@3x 1.svg" alt="" />
+        <img src="img/Asset 1@3x 1.svg" alt="">
       </div>
       <div class="center">
         <a class="active" href="">BANK</a>
@@ -24,39 +24,63 @@
       <div class="login">
         <button>LOGIN</button>
       </div>
+  </div>
+  <div id="navbar-phone">
+    <div class="menu">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <div class="main">
-      <h1>Currency converter online</h1>
-
-      <div class="calculate">
-        <div class="left">
-          <p>I have</p>
-          <div class="value-buttons-left">
-            <button class="actived">RUB</button>
-            <button>USD</button>
-            <button>EUR</button>
-            <button class="last">GBP</button>
-          </div>
-          <div class="price">
-            <input class="inp-left" type="number" />
-            <p class="p-left"></p>
-          </div>
+    <div class="logo">
+      <img src="img/Asset 1@3x 1.svg" alt="">
+    </div>
+    <div class="menu-bar">
+        <ul>
+            <li><a class="active" href="">BANK</a></li>
+            <li><a href="">BUSINESS</a></li>
+            <li><a href="">INVESTMENTS</a></li>
+            <li><a href="">INSURANCE</a></li>
+            <li><a href="">MOBILE</a></li>
+            <li><a href="">TRIPS</a></li>
+            <li><a href="">ENTERTAINMENT</a></li>
+            <li><a href="">Login</a></li>
+        </ul>
+    </div>
+</div>
+  <div class="main">
+    <h1>Currency converter online</h1>
+  
+    <div class="calculate">
+      <div class="left">
+        <p>I have</p>
+        <div class="value-buttons-left">
+          <button value="RUB" class="first actived">RUB</button>
+          <button value="USD">USD</button>
+          <button value="EUR">EUR</button>
+          <button value="GBP" class="last">GBP</button>
         </div>
-        <div class="right">
-          <p class="p-left">I want to buy</p>
-          <div class="value-buttons-right">
-            <button class="first">RUB</button>
-            <button class="actived">USD</button>
-            <button>EUR</button>
-            <button class="last">GBP</button>
-          </div>
-          <div class="price">
-            <input class="inp-right" type="number" />
-            <p class="p-right"></p>
-          </div>
+        <div class="price">
+          <input class="inp-left"  type="text">
+          <p class="p-left"></p>
+        </div>
+      </div>
+      <div class="right">
+        <p>I want to buy</p>
+        <div class="value-buttons-right">
+          <button value="RUB" class="first">RUB</button>
+          <button value="USD" class="act actived">USD</button>
+          <button value="EUR">EUR</button>
+          <button value="GBP" class="last">GBP</button>
+        </div>
+        <div class="price">
+          <input class="inp-right" type="text">
+          <p class="p-right"></p>
         </div>
       </div>
     </div>
+</div>
+    <script src="imask.js"></script>
     <script src="currency.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

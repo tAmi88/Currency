@@ -1,15 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +8,7 @@ input[type=number] {
 
 .navbar {
   background: #f5f5f6;
-  padding: 1em 100px;
+  padding: 1em 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,19 +21,19 @@ input[type=number] {
 }
 
 .navbar .center {
-  margin-right: 170px;
+  text-align: center;
 }
 
 .navbar .center a {
   margin-right: 33px;
   text-decoration: none;
-  color: #959ba4;
+  color: #959BA4;
   letter-spacing: 0.06em;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -73,7 +62,7 @@ input[type=number] {
           align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
 
@@ -94,9 +83,9 @@ input[type=number] {
 }
 
 .main h1 {
-  width: 800px;
+  max-width: 800px;
   margin-top: 56px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -111,7 +100,7 @@ input[type=number] {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  width: 800px;
+  max-width: 800px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -121,20 +110,27 @@ input[type=number] {
   font-size: 0px;
   margin-bottom: 20px;
   margin-top: 10px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 
 .calculate .value-buttons-left button {
   border-radius: 0px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #E5E5E5;
   outline: none;
   padding: 10px 21px;
+  font-weight: 400;
+  font-family: 'Roboto';
   cursor: pointer;
 }
 
-.calculate .value-buttons-left .actived {
-  background: #833ae0;
-  color: white;
+.calculate .value-buttons-left button.actived {
+  background: #833AE0;
+  color: #fff;
+}
+
+.calculate .value-buttons-left .first {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .calculate .value-buttons-left .last {
@@ -146,20 +142,22 @@ input[type=number] {
   font-size: 0px;
   margin-bottom: 20px;
   margin-top: 10px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 
 .calculate .value-buttons-right button {
   border-radius: 0px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #E5E5E5;
   outline: none;
   padding: 10px 21px;
+  font-weight: 400;
+  font-family: 'Roboto';
   cursor: pointer;
 }
 
-.calculate .value-buttons-right .actived {
-  background: #833ae0;
-  color: white;
+.calculate .value-buttons-right button.actived {
+  background: #833AE0;
+  color: #fff;
 }
 
 .calculate .value-buttons-right .first {
@@ -173,8 +171,8 @@ input[type=number] {
 }
 
 .calculate .price {
-  font-family: "Roboto";
-  border: 1px solid #e5e5e5;
+  font-family: 'Roboto';
+  border: 1px solid #E5E5E5;
   border-radius: 3px;
   padding: 10px 15px;
 }
@@ -206,14 +204,161 @@ input[type=number] {
 
 .calculate .left {
   margin-right: 123px;
-  width: 290px;
+  width: 277px;
 }
 
 .calculate .right {
-  width: 290px;
+  width: 277px;
 }
 
 .calculate p {
-  color: #9f9f9f;
+  color: #9F9F9F;
+}
+
+#navbar-phone {
+  z-index: 20;
+  width: 100%;
+  height: 60px;
+  display: none;
+  background-color: #fff;
+  position: fixed;
+}
+
+#navbar-phone .logo {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+#navbar-phone .logo a {
+  font-size: 27px;
+  color: #000;
+  font-family: "Playfair Display", times, serif;
+  text-decoration: none;
+}
+
+#navbar-phone .menu {
+  border: 1px solid #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 61px;
+  background: #fff;
+  cursor: pointer;
+  z-index: 12;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#navbar-phone .menu.active span:nth-child(1) {
+  -webkit-transform: translateY(0px) rotate(-45deg);
+          transform: translateY(0px) rotate(-45deg);
+}
+
+#navbar-phone .menu.active span:nth-child(3) {
+  -webkit-transform: translateY(0px) rotate(45deg);
+          transform: translateY(0px) rotate(45deg);
+}
+
+#navbar-phone .menu.active span:nth-child(2) {
+  -webkit-transform: translatex(30px);
+          transform: translatex(30px);
+  opacity: 0;
+}
+
+#navbar-phone span {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #262626;
+  display: block;
+  top: calc(50% - 1px);
+  right: calc(50% - 15px);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#navbar-phone span:nth-child(1) {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+#navbar-phone span:nth-child(3) {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+#navbar-phone .menu-bar {
+  z-index: 11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  background-color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+#navbar-phone .menu-bar.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+#navbar-phone .menu-bar ul {
+  display: inherit;
+  width: 100%;
+  text-align: center;
+  height: 50%;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-phone .menu-bar ul li {
+  list-style: none;
+}
+
+#navbar-phone .menu-bar ul li a {
+  line-height: 60px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #262626;
+  text-decoration: none;
+  padding: 0 20px;
+  display: block;
+  border-right: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#navbar-phone .menu-bar ul li a:hover {
+  background: #833AE0;
+  color: #fff;
+}
+
+#navbar-phone .menu-bar ul li:last-child a {
+  border-right: none;
+}
+
+@media (min-width: 320px) and (max-width: 910px) {
+  .navbar {
+    display: none;
+  }
+  #navbar-phone {
+    display: block;
+  }
+  .calculate {
+    display: block;
+  }
+  .main h1 {
+    margin-top: 112px;
+  }
+  .calculate .left {
+    margin-right: 0px;
+    margin-bottom: 50px;
+  }
 }
 /*# sourceMappingURL=currency.css.map */
