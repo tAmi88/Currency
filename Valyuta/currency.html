@@ -8,77 +8,64 @@
     <link rel="stylesheet" href="currency.css" />
   </head>
   <body>
-    <div class="navbar">
-      <div class="logo">
-        <img src="img/Asset 1@3x 1.svg" alt="">
-      </div>
-      <div class="center">
-        <a class="active" href="">BANK</a>
-        <a href="">BUSINESS</a>
-        <a href="">INVESTMENTS</a>
-        <a href="">INSURANCE</a>
-        <a href="">MOBILE</a>
-        <a href="">TRIPS</a>
-        <a href="">ENTERTAINMENT</a>
-      </div>
-      <div class="login">
-        <button>LOGIN</button>
-      </div>
-  </div>
-  <div id="navbar-phone">
-    <div class="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="logo">
-      <img src="img/Asset 1@3x 1.svg" alt="">
-    </div>
-    <div class="menu-bar">
-        <ul>
-            <li><a class="active" href="">BANK</a></li>
-            <li><a href="">BUSINESS</a></li>
-            <li><a href="">INVESTMENTS</a></li>
-            <li><a href="">INSURANCE</a></li>
-            <li><a href="">MOBILE</a></li>
-            <li><a href="">TRIPS</a></li>
-            <li><a href="">ENTERTAINMENT</a></li>
-            <li><a href="">Login</a></li>
-        </ul>
-    </div>
-</div>
-  <div class="main">
-    <h1>Currency converter online</h1>
+    <div class="container">
+      <div class="up-side">
+        <div class="logo">
+          <img src="img/bankIcon.svg" alt="" class="logo" />
+        </div>
+        <div class="text">
+          <div class="menuItem">БАНК</div>
+          <div class="menuItem">БИЗНЕС</div>
+          <div class="menuItem">ИНВЕСТИЦИИ</div>
+          <div class="menuItem">СТРАХОВАНИЕ</div>
+          <div class="menuItem">МОБАЙЛ</div>
+          <div class="menuItem">ПУТЕШЕСТВИЯ</div>
+          <div class="menuItem">РАЗВЛЕЧЕНИЯ</div>
+        </div>
+        <button class="login">
+          <p>ВОЙТИ</p>
+        </button>
   
-    <div class="calculate">
-      <div class="left">
-        <p>I have</p>
-        <div class="value-buttons-left">
-          <button value="RUB" class="first actived">RUB</button>
-          <button value="USD">USD</button>
-          <button value="EUR">EUR</button>
-          <button value="GBP" class="last">GBP</button>
-        </div>
-        <div class="price">
-          <input class="inp-left" type="text">
-          <p class="p-left"></p>
-        </div>
+        <button class="hamburger">
+          <!-- material icons https://material.io/resources/icons/ -->
+          <i class="menuIcon material-icons">menu</i>
+          <i class="closeIcon material-icons">close</i>
+        </button>
       </div>
-      <div class="right">
-        <p>I want to buy</p>
-        <div class="value-buttons-right">
-          <button value="RUB" class="first">RUB</button>
-          <button value="USD" class="act actived">USD</button>
-          <button value="EUR">EUR</button>
-          <button value="GBP" class="last">GBP</button>
-        </div>
-        <div class="price">
-          <input class="inp-right" type="text">
-          <p class="p-right"></p>
+  
+      <div class="down-side">
+        <div class="main-text">Конвертер валют онлайн</div>
+        <div class="converter-div">
+          <div class="left-converter">
+            <div class="left-text">У меня есть</div>
+            <div class="left-currency">
+              <button class="active">RUB</button>
+              <button>USD</button>
+              <button>EUR</button>
+              <button>GBP</button>
+            </div>
+            <div class="input-text">
+              <input type="text" placeholder="Add value" id="input1" value="1" required />
+              <p>1 RUB = 0.0135 USD</p>
+            </div>
+          </div>
+          <div class="right-converter">
+            <div class="right-text">Хочу приобрести</div>
+            <div class="right-currency">
+              <button>RUB</button>
+              <button class="active">USD</button>
+              <button>EUR</button>
+              <button>GBP</button>
+            </div>
+            <div class="input-text1">
+              <input type="text" placeholder="Add value" id="input2" value="1" required />
+              <p>1 USD = 73.8896 RUB</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
+  
     <script src="imask.js"></script>
     <script src="currency.js"></script>
     <script src="main.js"></script>
