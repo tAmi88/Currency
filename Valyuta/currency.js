@@ -8,9 +8,7 @@ let pLeft = document.querySelector(".p-left");
 let pRight = document.querySelector(".p-right");
 let url = "https://api.exchangerate.host/latest?";
 inpLeft.value = 1;
-inpRight.value = 0.012161;
-pLeft.innerHTML = "1RUB=0.012161USD";
-pRight.innerHTML = "1USD=77.283144RUB";
+FechRight(base, symbols)
 function Style() {
   btnLeft.forEach((item) => {
     item.addEventListener("click", function () {
@@ -74,7 +72,7 @@ function FechLeft(baseFunc, symbolsFunc) {
       .then((data) => {
         inpLeft.value =
           inpRight.value.replace(/\s+/g, "") * data.rates[`${baseFunc}`];
-        left(inpLeft);
+        Imask(inpLeft);
         pRight.innerHTML = `1${data.base}=${
           data.rates[`${baseFunc}`]
         }${baseFunc}`;
@@ -90,8 +88,8 @@ function FechLeft(baseFunc, symbolsFunc) {
       });
   } else {
     inpLeft.value = inpRight.value;
-    pLeft.innerHTML = "";
-    pRight.innerHTML = "";
+    pLeft.innerHTML = `1${baseFunc}=1${baseFunc}`;
+    pRight.innerHTML = `1${baseFunc}=1${baseFunc}`;
   }
 }
 function FechRight(baseFunc, symbolsFunc) {
@@ -103,7 +101,7 @@ function FechRight(baseFunc, symbolsFunc) {
       .then((data) => {
         inpRight.value =
           inpLeft.value.replace(/\s+/g, "") * data.rates[`${symbolsFunc}`];
-        right(inpRight);
+        Imask(inpRight);
         pLeft.innerHTML = `1${data.base}=${
           data.rates[`${symbolsFunc}`]
         }${symbolsFunc}`;
@@ -119,11 +117,11 @@ function FechRight(baseFunc, symbolsFunc) {
       });
   } else {
     inpRight.value = inpLeft.value;
-    pLeft.innerHTML = "";
-    pRight.innerHTML = "";
+    pLeft.innerHTML = `1${baseFunc}=1${baseFunc}`;
+    pRight.innerHTML = pLeft.innerHTML;
   }
 }
-function left(inp) {
+function Imask(inp) {
   var numberMask = IMask(inp, {
     mask: Number,
     scale: 6,
@@ -132,22 +130,10 @@ function left(inp) {
     padFractionalZeros: false,
     normalizeZeros: true,
     radix: ".",
-    mapToRadix: ["."],
+    mapToRadix: [","],
   });
 }
-function right(inp) {
-  numberMask = IMask(inp, {
-    mask: Number,
-    scale: 6,
-    signed: false,
-    thousandsSeparator: " ",
-    padFractionalZeros: false,
-    normalizeZeros: true,
-    radix: ".",
-    mapToRadix: ["."],
-  });
-}
-left(inpLeft);
-right(inpRight);
+Imask(inpLeft);
+Imask(inpLeft);
 Style();
 inpEvent();
