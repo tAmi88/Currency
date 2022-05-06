@@ -8,9 +8,7 @@ let pLeft = document.querySelector(".p-left");
 let pRight = document.querySelector(".p-right");
 let url = "https://api.exchangerate.host/latest?";
 inpLeft.value = 1;
-inpRight.value = 0.012161;
-pLeft.innerHTML = "1RUB=0.012161USD";
-pRight.innerHTML = "1USD=77.283144RUB";
+FechRight(base, symbols)
 function Style() {
   btnLeft.forEach((item) => {
     item.addEventListener("click", function () {

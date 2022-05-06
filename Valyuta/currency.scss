@@ -229,6 +229,7 @@
 //         {
 //             transform: translateY(10px);
         
+<<<<<<< HEAD
 //         }
 //     }
 //     .menu-bar{
@@ -254,6 +255,33 @@
 //             padding: 0;
 //             li{
 //                 list-style: none;
+=======
+        }
+    }
+    .menu-bar{
+        z-index: 11;
+        position: absolute;
+        top:0;
+        left:0;
+        height: auto;
+        width: 300px;    
+        background-color: #fff;
+        transition: 0.5s;
+        transform: translateX(-100%);
+        &.active{
+        transform: translateX(-50%);    
+        }
+        ul{
+            display:inherit;
+            width: 300px;
+            text-align: left;
+            height: 50%; 
+            float: none;
+            margin-top: 50px;
+            padding: 0;
+            li{
+                list-style: none;
+>>>>>>> 05b7791dbfce62a3cdba7c334002501487ec5e15
                 
 //                 a{
 //                     line-height: 60px;
