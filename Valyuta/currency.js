@@ -1,41 +1,49 @@
 let base = "RUB";
 let symbols = "USD";
-let btnLeft = document.querySelectorAll(".value-buttons-left button");
-let btnRight = document.querySelectorAll(".value-buttons-right button");
+let btnLeft = document.querySelectorAll(".left-currency button");
+let btnRight = document.querySelectorAll(".right-currency button");
 let inpLeft = document.querySelector(".inp-left");
 let inpRight = document.querySelector(".inp-right");
 let pLeft = document.querySelector(".p-left");
 let pRight = document.querySelector(".p-right");
 let url = "https://api.exchangerate.host/latest?";
 inpLeft.value = 1;
-inpRight.value = 0.012161;
-pLeft.innerHTML = "1RUB=0.012161USD";
-pRight.innerHTML = "1USD=77.283144RUB";
+FechRight(base, symbols)
 function Style() {
   btnLeft.forEach((item) => {
     item.addEventListener("click", function () {
       btnLeft.forEach((item) => {
-        item.classList.remove("actived");
+        item.classList.remove("active");
       });
       base = this.innerHTML;
       Api(this.parentElement.classList[0]);
     });
     item.addEventListener("click", () => {
-      item.classList.add("actived");
+      item.classList.add("active");
     });
   });
   btnRight.forEach((item) => {
     item.addEventListener("click", function () {
       btnRight.forEach((item) => {
-        item.classList.remove("actived");
+        item.classList.remove("active");
       });
       symbols = this.innerHTML;
       Api(this.parentElement.classList[0]);
     });
     item.addEventListener("click", () => {
-      item.classList.add("actived");
+      item.classList.add("active");
     });
   });
+}
+let i = 1;
+function onChange(evt){
+  if(i==1){
+  evt.target.value = evt.target.value.replace("0","");
+  i++
+}
+  inpLeft.value=evt.target.value
+  console.log(evt.target.value)
+
 }
 function inpEvent() {
   inpLeft.addEventListener("input", () => {
@@ -45,6 +53,9 @@ function inpEvent() {
       pRight.innerHTML = "";
     } else {
       FechRight(base, symbols);
+    }
+    if(inpLeft.value=="0"){
+      inpLeft.addEventListener('input', onChange, true);
     }
   });
   inpRight.addEventListener("input", () => {
@@ -58,10 +69,10 @@ function inpEvent() {
   });
 }
 function Api(btn_parent_name) {
-  if (btn_parent_name == "value-buttons-right") {
+  if (btn_parent_name == "right-currency") {
     FechRight(base, symbols);
   }
-  if (btn_parent_name == "value-buttons-left") {
+  if (btn_parent_name == "left-currency") {
     FechLeft(base, symbols);
   }
 }
@@ -72,9 +83,10 @@ function FechLeft(baseFunc, symbolsFunc) {
         return res.json();
       })
       .then((data) => {
+        console.log("2",data)
         inpLeft.value =
-          inpRight.value.replace(/\s+/g, "") * data.rates[`${baseFunc}`];
-        left(inpLeft);
+          Number(inpRight.value.replace(/\s+/g, "")) * data.rates[`${baseFunc}`];
+        imaks(inpLeft);
         pRight.innerHTML = `1${data.base}=${
           data.rates[`${baseFunc}`]
         }${baseFunc}`;
@@ -90,8 +102,8 @@ function FechLeft(baseFunc, symbolsFunc) {
       });
   } else {
     inpLeft.value = inpRight.value;
-    pLeft.innerHTML = "";
-    pRight.innerHTML = "";
+    pLeft.innerHTML = `1${base}=1${base}`;
+    pRight.innerHTML = `1${base}=1${base}`;
   }
 }
 function FechRight(baseFunc, symbolsFunc) {
@@ -103,7 +115,7 @@ function FechRight(baseFunc, symbolsFunc) {
       .then((data) => {
         inpRight.value =
           inpLeft.value.replace(/\s+/g, "") * data.rates[`${symbolsFunc}`];
-        right(inpRight);
+        imaks(inpRight);
         pLeft.innerHTML = `1${data.base}=${
           data.rates[`${symbolsFunc}`]
         }${symbolsFunc}`;
@@ -119,11 +131,11 @@ function FechRight(baseFunc, symbolsFunc) {
       });
   } else {
     inpRight.value = inpLeft.value;
-    pLeft.innerHTML = "";
-    pRight.innerHTML = "";
+    pLeft.innerHTML = `1${base}=1${base}`;
+    pRight.innerHTML = `1${base}=1${base}`;
   }
 }
-function left(inp) {
+function imaks(inp) {
   var numberMask = IMask(inp, {
     mask: Number,
     scale: 6,
@@ -132,22 +144,10 @@ function left(inp) {
     padFractionalZeros: false,
     normalizeZeros: true,
     radix: ".",
-    mapToRadix: ["."],
+    mapToRadix: [","],
   });
 }
-function right(inp) {
-  numberMask = IMask(inp, {
-    mask: Number,
-    scale: 6,
-    signed: false,
-    thousandsSeparator: " ",
-    padFractionalZeros: false,
-    normalizeZeros: true,
-    radix: ".",
-    mapToRadix: ["."],
-  });
-}
-left(inpLeft);
-right(inpRight);
+imaks(inpLeft);
+imaks(inpRight);
 Style();
 inpEvent();
