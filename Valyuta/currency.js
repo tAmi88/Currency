@@ -16,7 +16,6 @@ function Style() {
         item.classList.remove("active");
       });
       base = this.innerHTML;
-      console.log(this)
       console.log(this.parentElement.classList.value)
       Api(this.parentElement.classList[0]);
     });
@@ -40,54 +39,38 @@ function Style() {
 // let ileft = true;
 // let iright = true;
 // let topass=false;
-// function onChangeLeft(evt){
-//   if(ileft){
-//   evt.target.value = evt.target.value.replace("0","");
-//   ileft=false
-// }
-//   inpLeft.value=evt.target.value
-//   if(inpLeft.value=="0"){
-//     inpLeft.addEventListener('input', self.onChangeLeft, true);
-//     ileft=true
-//   }
-// }
-// function onChangeRight(evt){
-//   if(iright){
-//     console.log("e",evt.target.value)
-//   evt.target.value = evt.target.value.replace("0","");
-//   iright=false
-// }
-//   inpRight.value=evt.target.value
-//   if(inpRight.value=="0"){
-//     inpRight.addEventListener('input', self.onChangeRight, true);
-//     iright=true
-//   }
-// }
+function onChangeLeft(evt){
+if(inpLeft.value[0]==0 &&inpLeft.value.length>1){
+  console.log(evt.value)
+  inpLeft.value=inpLeft.value[1]
+}
+}
+function onChangeRight(evt){
+if(inpRight.value[0]==0 &&inpRight.value.length>1){
+  inpRight.value=inpRight.value[1]
+  FechLeft(base, symbols);
+}
+}
 function inpEvent() {
   inpLeft.addEventListener("input", () => {
-    topass=true
     console.log(inpLeft.value)
     if (inpLeft.value == "") {
       inpRight.value = "";
       pLeft.innerHTML = "";
       pRight.innerHTML = "";
     } else {
+      inpLeft.addEventListener('input',()=>{
+      });
       FechRight(base, symbols);
     }
-    // if(inpLeft.value=="0"){
-    //   inpLeft.addEventListener('input', onChangeLeft, true);
-    //   ileft=true
-    // }
+    if(inpLeft.value=="0"){
+      inpLeft.addEventListener('input', onChangeLeft, true);
+      
+    }
   });
 
   inpRight.addEventListener("input", () => {
     console.log(inpRight.value)
-    console.log(topass)
-    if(topass && inpRight.value==0){
-      inpRight.value=0
-      console.log(inpRight.value)
-      topass=false
-    }
     if (inpRight.value == "") {
       inpLeft.value = "";
       pLeft.innerHTML = "";
@@ -95,10 +78,9 @@ function inpEvent() {
     } else {
       FechLeft(base, symbols);
     }
-    // if(inpRight.value=="0"){
-    //   inpRight.addEventListener('input', onChangeRight, true);
-    //   iright=true
-    // }
+    if(inpRight.value=="0"){
+      inpRight.addEventListener('input', onChangeRight, true);
+    }
   });
 }
 function Api(btn_parent_name) {
@@ -119,7 +101,6 @@ function FechLeft(baseFunc, symbolsFunc) {
       .then((data) => {
         inpLeft.value =
           Number(inpRight.value.replace(/\s+/g, "")) * data.rates[`${baseFunc}`];
-          imaksLeft(inpLeft);
         pRight.innerHTML = `1${data.base}=${
           data.rates[`${baseFunc}`]
         }${baseFunc}`;
@@ -146,10 +127,8 @@ function FechRight(baseFunc, symbolsFunc) {
         return res.json();
       })
       .then((data) => {
-        console.log(data)
         inpRight.value =
           inpLeft.value.replace(/\s+/g, "") * data.rates[`${symbolsFunc}`];
-          imaksRight(inpRight)
         pLeft.innerHTML = `1${data.base}=${
           data.rates[`${symbolsFunc}`]
         }${symbolsFunc}`;
@@ -158,7 +137,6 @@ function FechRight(baseFunc, symbolsFunc) {
             return res.json();
           })
           .then((data) => {
-            console.log(data.rates)
             pRight.innerHTML = `1${data.base}=${
               data.rates[`${baseFunc}`]
             }${baseFunc}`;
@@ -170,8 +148,8 @@ function FechRight(baseFunc, symbolsFunc) {
     pRight.innerHTML = `1${base}=1${base}`;
   }
 }
-function imaksRight(inp) {
-  var numberMask = IMask(inp, {
+
+  var numberMask = IMask(inpRight, {
     mask: Number,
     scale: 6,
     signed: false,
@@ -181,9 +159,9 @@ function imaksRight(inp) {
     radix: ".",
     mapToRadix: [","],
   });
-}
-function imaksLeft(inp) {
-  var numberMask = IMask(inp, {
+
+
+  var numberMask = IMask(inpLeft, {
     mask: Number,
     scale: 6,
     signed: false,
@@ -193,8 +171,6 @@ function imaksLeft(inp) {
     radix: ".",
     mapToRadix: [","],
   });
-}
-imaksLeft(inpLeft);
-imaksRight(inpRight);
+
 Style();
 inpEvent();
